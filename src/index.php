@@ -5,52 +5,48 @@ $dbuser = 'myuser';
 $dbPassword = 'mypassword';
 
 try {
-    $connection = new PDO($dsn, $dbuser, $dbPassword);
+  $connection = new PDO($dsn, $dbuser, $dbPassword);
   echo "Connection successful" . "<br>";
-    
 } catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage() . " (" . $e->getCode() . ")";
+  echo "Connection failed: " . $e->getMessage() . " (" . $e->getCode() . ")";
 }
 
- $getGay = $connection->prepare("SELECT * FROM gaylist");
-  $getGay->execute();
-
-  $result = $getGay->fetchAll();
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.tailwindcss.com"></script>
-    <title></title>
-    <link href="css/style.css" rel="stylesheet">
-  </head>
-  <body> 
-  <h1 class="text-gray-500 text-xl bg-black">
-  <?php
+  <title></title>
+  <link href="css/style.css" rel="stylesheet">
+</head>
 
-  foreach ($result as $row) {
-    echo $row['gayname'] . "  is gay " . $row["gayage"] . "<br>";
-  }
-    ?>      
-      hello world
-  </h1>
+<body>
 
-    <div> 
-      <nav class="flex justify-between"> 
-        <div>logo</div>
-        <ul class="flex [&>li]:m-10">
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          </ul>
-      </nav>
+  <div class="text-gray-500 text-xl bg-black">
+    <?php
 
-    </div>
-     
-  </body>
+    $singer = $connection->prepare("SELECT * FROM best_singer");
+    $singer->execute();
+
+    $result = $singer->fetchAll();
+
+    foreach ($result as $row) {
+      $name = $row['name'];
+      $talent = $row['talent'];
+      $description = $row['description'];
+      $image = $row["uri"];
+      echo $name . "<br>" . $talent . "<br>" . $description . "<br>" . $image . "<br>" . "<image src='$image' alt='singer image'>";
+    }
+    ?>
+  </div>
+
+
+
+</body>
+
 </html>
-
