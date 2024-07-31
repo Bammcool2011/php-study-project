@@ -8,12 +8,6 @@ Welcome to our PHP Study Project! This repository documents our journey and lear
 2. [Technologies Used](#technologies-used)
 3. [Getting Started](#getting-started)
    - [Prerequisites](#prerequisites)
-   - [Installation](#installation)
-   - [Usage](#usage)
-4. [Deployment](#deployment)
-5. [Contributing](#contributing)
-6. [License](#license)
-7. [Contact](#contact)
 
 ## About the Project
 
