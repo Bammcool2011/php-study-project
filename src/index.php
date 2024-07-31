@@ -32,7 +32,8 @@ try {
 <body>
 
 
-  <div class="text-[46px] text-bold justify-center items-center flex flex-col mt-3">
+  <div class="text-[46px] text-bold justify-center items-center flex flex-col mt-3 ">
+    <!-- <div class="text-[46px] text-bold grid grid-flow-col auto-cols-auto"> -->
     TITLE
     <?php
     foreach ($result as $row) {
