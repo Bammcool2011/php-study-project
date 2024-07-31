@@ -6,7 +6,11 @@ $dbPassword = 'mypassword';
 
 try {
   $connection = new PDO($dsn, $dbuser, $dbPassword);
-  echo "Connection successful" . "<br>";
+  $singer = $connection->prepare("SELECT * FROM best_singer");
+  $singer->execute();
+
+  $result = $singer->fetchAll();
+  // echo "Connection successful" . "<br>";
 } catch (PDOException $e) {
   echo "Connection failed: " . $e->getMessage() . " (" . $e->getCode() . ")";
 }
@@ -27,25 +31,24 @@ try {
 
 <body>
 
-  <div class="text-gray-500 text-xl bg-black">
+
+  <div class="text-[46px] text-bold justify-center items-center flex flex-col mt-3">
+    TITLE
     <?php
-
-    $singer = $connection->prepare("SELECT * FROM best_singer");
-    $singer->execute();
-
-    $result = $singer->fetchAll();
-
     foreach ($result as $row) {
       $name = $row['name'];
       $talent = $row['talent'];
       $description = $row['description'];
       $image = $row["uri"];
-      echo $name . "<br>" . $talent . "<br>" . $description . "<br>" . $image . "<br>" . "<image src='$image' alt='singer image'>";
-    }
+      echo ("
+      <div>$name</div>
+      <div>$talent</div>
+      <div>$description</div>
+      <div> <img src='$image' class='w-40 h-40' alt='singer image'></div>
+      ");
+    };
     ?>
   </div>
-
-
 
 </body>
 
