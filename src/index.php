@@ -1,4 +1,5 @@
 <?php
+require 'navbar.php';
 $dsn = 'mysql:dbname=mydatabase;host=mysql;port=3306';
 $dbuser = 'myuser';
 $dbPassword = 'mypassword';
@@ -30,12 +31,10 @@ try {
   <body> 
   <h1 class="text-gray-500 text-xl bg-black">
   <?php
-require 'hello.php'; // Includes file1.php
 
   foreach ($result as $row) {
     echo $row['gayname'] . "  is gay " . $row["gayage"] . "<br>";
   }
-greetFromFile1();
     ?>      
       hello world
   </h1>
