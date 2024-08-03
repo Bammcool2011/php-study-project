@@ -38,3 +38,4 @@ To run this project locally, ensure you have the following installed:
 - [MySQL](https://dev.mysql.com/downloads/) (or an equivalent database server)
 - [Composer](https://getcomposer.org/download/) (PHP package manager)
 - [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/get-npm) (for managing frontend dependencies)
+# php-self-study
